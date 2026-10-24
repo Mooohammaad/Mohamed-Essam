@@ -516,10 +516,8 @@ nav .navlinks { display: block; }
   .hero-text { padding: 0; }
   .portfolio { padding-bottom: 30px; }
 }
-/* Wide desktop windows: three columns. Touch tablets keep two columns. */
-@media (min-width: 1200px) {
+/* Laptops/desktops with a mouse or trackpad: three columns.
+   Narrow phone-sized windows and touch-only tablets keep two columns. */
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
   .video-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (hover: none) and (pointer: coarse) {
-  .video-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
