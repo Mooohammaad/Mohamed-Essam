@@ -26,7 +26,7 @@
                     </div>
                     <ul class="navlinks">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#">Resume</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="https://wa.me/+201147530975">Contact</a></li>
@@ -96,6 +96,8 @@
                   </ul>
                   
                   
+              </div>
+              <div class="hero-text portfolio" id="portfolio">
               <h1 dir="rtl" class="project"> ּ بعض ٵ؏ـماڶې    </h1>
               
               <p dir="rtl">
@@ -105,24 +107,24 @@
              
  <div class="video-container"> 
      
-     <video src="History.mp4" controls></video>
-     <video src="DR.NADEEN.mp4" controls></video>
-     <video src="DR.Marina.mp4" controls></video>
-     <video src="look.mp4" controls></video>   
-     <video src="Iraqi.mp4" controls></video>  
-     <video src="online store.mp4" controls></video>
-     <video src="Dr.Qoussi.mp4" controls></video>
-     <video src="Dr.sama.mp4" controls></video>     
-     <video src="Iraqi washes.mp4" controls></video>
-     <video src="salesfunnel.mp4" controls></video>
-     <video src="mr.amged.mp4" controls></video>
-     <video src="Qatar.mp4" controls></video>
-     <video src="Dr.marina2.mp4" controls></video>
-     <video src="Iraqi sep.mp4" controls></video>
-     <video src="mr.haswaa.mp4" controls></video>
-     <video src="banz.mp4" controls></video>
-     <video src="MATHBRAIN.mp4" controls></video>
-     <video src="car.mp4" controls></video>
+     <video src="History.mp4" controls playsinline preload="metadata"></video>
+     <video src="DR.NADEEN.mp4" controls playsinline preload="metadata"></video>
+     <video src="DR.Marina.mp4" controls playsinline preload="metadata"></video>
+     <video src="look.mp4" controls playsinline preload="metadata"></video>   
+     <video src="Iraqi.mp4" controls playsinline preload="metadata"></video>  
+     <video src="online store.mp4" controls playsinline preload="metadata"></video>
+     <video src="Dr.Qoussi.mp4" controls playsinline preload="metadata"></video>
+     <video src="Dr.sama.mp4" controls playsinline preload="metadata"></video>     
+     <video src="Iraqi washes.mp4" controls playsinline preload="metadata"></video>
+     <video src="salesfunnel.mp4" controls playsinline preload="metadata"></video>
+     <video src="mr.amged.mp4" controls playsinline preload="metadata"></video>
+     <video src="Qatar.mp4" controls playsinline preload="metadata"></video>
+     <video src="Dr.marina2.mp4" controls playsinline preload="metadata"></video>
+     <video src="Iraqi sep.mp4" controls playsinline preload="metadata"></video>
+     <video src="mr.haswaa.mp4" controls playsinline preload="metadata"></video>
+     <video src="banz.mp4" controls playsinline preload="metadata"></video>
+     <video src="MATHBRAIN.mp4" controls playsinline preload="metadata"></video>
+     <video src="car.mp4" controls playsinline preload="metadata"></video>
      
      
  </div>
@@ -177,13 +179,27 @@ togglebtn.addEventListener("click", function(){
     this.classList.toggle("click"); // تحريك زر التبديل نفسه (الثلاث شرطات)
 });
 
+// Keep only one video playing, including playback using native controls.
+const portfolioVideos = document.querySelectorAll('.video-container video');
+portfolioVideos.forEach((video) => {
+    video.addEventListener('play', () => {
+        portfolioVideos.forEach((other) => {
+            if (other !== video && !other.paused) other.pause();
+        });
+    });
+});
+
 // إعداد الـ Typed.js
+if (typeof Typed !== "undefined") {
 var typed = new Typed(".input", {
     strings: ["Mohamed Essam","Video Editor", "PhotoShoper", "frontend Developer"],
     typeSpeed: 70,  // تصحيح خطأ بسيط هنا، حيث يجب أن يكون الاسم "typeSpeed" وليس "typedSpeed"
     backSpeed: 55,
     loop: true
 });
+} else {
+    document.querySelector(".input").textContent = "Mohamed Essam";
+}
 
      </script>
 
